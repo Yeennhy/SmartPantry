@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Final_Mobile" parent="android:Theme.Material.Light.NoActionBar" />
+    <!--
+      Material Components theme, not android:Theme.Material — the XML widgets
+      the screens rely on (TextInputLayout, ChipGroup, MaterialDatePicker)
+      crash at inflation time under a plain platform theme.
+    -->
+    <style name="Theme.StudyFinder" parent="Theme.Material3.DayNight.NoActionBar" />
+
 </resources>

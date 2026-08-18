@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!--
+      Screens are added here as each phase lands (§7 of the dev plan).
+      The start destination is overridden at runtime in MainActivity once
+      auth routing exists (§7.0), so the value above is only the default.
+    -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.studyfinder.app.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+</navigation>

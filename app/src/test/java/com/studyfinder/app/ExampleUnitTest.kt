@@ -1,4 +1,4 @@
-package com.example.final_mobile
+package com.studyfinder.app
 
 import org.junit.Test
 

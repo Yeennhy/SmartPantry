@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Final_Mobile</string>
+    <string name="app_name">Study Group Finder</string>
+
+    <!-- Screen titles -->
+    <string name="title_home">Upcoming sessions</string>
+
+    <!-- Placeholders, removed as each screen lands -->
+    <string name="home_placeholder">Home</string>
 </resources>

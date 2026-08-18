@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Emulator log produced by scripts/start-android.sh
+emulator_log.txt
