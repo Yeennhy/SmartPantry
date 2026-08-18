@@ -1,0 +1,66 @@
+package com.studyfinder.app.ui.auth
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.studyfinder.app.databinding.FragmentSplashBinding
+
+/**
+ * Decides where the app actually starts (§7.0).
+ *
+ * Firebase persists the auth session across restarts, so the start
+ * destination cannot be a static value in nav_graph.xml. This fragment routes
+ * three ways and pops itself off the back stack either way:
+ *
+ *  - no signed-in user                    -> Login
+ *  - signed in, but no communityId set    -> Community Selection
+ *  - signed in with a community           -> Home
+ */
+class SplashFragment : Fragment() {
+
+    private var _binding: FragmentSplashBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // TODO(§7.0): read AuthRepository.currentUid + the cached profile's
+        //  communityId, then call exactly one of the three routes below.
+    }
+
+    private fun goToLogin() {
+        findNavController().navigate(
+            SplashFragmentDirections.actionSplashFragmentToLoginFragment()
+        )
+    }
+
+    private fun goToCommunitySelection() {
+        findNavController().navigate(
+            SplashFragmentDirections.actionSplashFragmentToCommunitySelectionFragment(
+                isEditMode = false
+            )
+        )
+    }
+
+    private fun goToHome() {
+        findNavController().navigate(
+            SplashFragmentDirections.actionSplashFragmentToHomeFragment()
+        )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

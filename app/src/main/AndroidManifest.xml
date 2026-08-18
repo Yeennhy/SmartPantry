@@ -5,7 +5,21 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- Permissions matrix, §9 of the dev plan. -->
+
+    <!-- Profile photo capture (§7.7) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Local session reminders on Android 13+ (§8) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Home proximity sort (§7.2) — one-time fetch, not continuous tracking -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Note: the Photo Picker and the document picker (study materials) need
+         NO runtime permission at all, which is exactly why they are preferred
+         over manual gallery/file intents (§9). -->
+
     <application
+        android:name=".StudyFinderApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,6 +29,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyFinder"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -25,6 +40,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Shares exported CSV/PDF history files as content:// URIs (§7.6). -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

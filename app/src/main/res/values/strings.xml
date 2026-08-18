@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">Study Group Finder</string>
 
-    <!-- Screen titles -->
+    <!-- Screen titles, one per nav_graph destination -->
+    <string name="title_login">Sign in</string>
+    <string name="title_signup">Create account</string>
+    <string name="title_forgot_password">Reset password</string>
+    <string name="title_community_selection">Choose your community</string>
     <string name="title_home">Upcoming sessions</string>
-
-    <!-- Placeholders, removed as each screen lands -->
-    <string name="home_placeholder">Home</string>
+    <string name="title_session_detail">Session</string>
+    <string name="title_create_session">New session</string>
+    <string name="title_session_manage">Manage session</string>
+    <string name="title_invite_by_student_id">Invite by student ID</string>
+    <string name="title_my_sessions">My sessions</string>
+    <string name="title_history">History</string>
+    <string name="title_inbox">Inbox</string>
+    <string name="title_profile">Profile</string>
 </resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  FileProvider config for the CSV/PDF history export (§7.6).
+
+  Exports are written to the app's cache directory and shared as content://
+  URIs via ACTION_SEND — a plain file:// Uri would throw FileUriExposedException.
+-->
+<paths>
+    <cache-path
+        name="exports"
+        path="exports/" />
+</paths>
